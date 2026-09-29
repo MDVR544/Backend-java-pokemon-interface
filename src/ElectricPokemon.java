@@ -103,4 +103,10 @@ public class ElectricPokemon extends Pokemon{
             System.out.println("Attack missed");
         }
     }
+
+    public void heal(Pokemon pokemon){
+        System.out.println(pokemon.getName() + " eats " + pokemon.getFood() + "to heal 15hp");
+        pokemon.setHp(pokemon.getHp() + 15);
+        System.out.println(pokemon.getName() + " has " + pokemon.getHp() + " left");
+    }
 }

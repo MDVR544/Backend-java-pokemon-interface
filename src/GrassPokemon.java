@@ -112,4 +112,9 @@ public class GrassPokemon extends Pokemon{
             System.out.println("Attack missed");
         }
     }
+    public void heal(Pokemon pokemon){
+        System.out.println(pokemon.getName() + " eats " + pokemon.getFood() + "to heal 40hp");
+        pokemon.setHp(pokemon.getHp() + 40);
+        System.out.println(pokemon.getName() + " has " + pokemon.getHp() + " left");
+    }
 }

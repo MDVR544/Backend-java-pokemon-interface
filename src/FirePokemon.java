@@ -103,5 +103,9 @@ public class FirePokemon extends Pokemon{
         }
     }
 
-
+        public void heal(Pokemon pokemon){
+            System.out.println(pokemon.getName() + " eats " + pokemon.getFood() + "to heal 25hp");
+            pokemon.setHp(pokemon.getHp() + 25);
+            System.out.println(pokemon.getName() + " has " + pokemon.getHp() + " left");
+        }
 }

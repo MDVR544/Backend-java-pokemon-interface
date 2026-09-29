@@ -55,7 +55,7 @@ public class PokemonGymImpl implements PokemonGym {
             System.out.println("Its " + owner.getName() + "'s turn to attack");
             gymOwnerAttacks(gymPokemon, pokemon);
             System.out.println("Its " + trainer.getName() + "'s turn to attack");
-            attackOrChange(pokemon, gymPokemon, trainer, owner);
+            attackOrChangeOrHeal(pokemon, gymPokemon, trainer, owner);
 
         }
         if(pokemon.getHp() <= 0){
@@ -244,20 +244,22 @@ public class PokemonGymImpl implements PokemonGym {
     }
 
     @Override
-    public void attackOrChange(Pokemon pokemon, Pokemon gymPokemon, PokemonTrainer trainer, PokemonGymOwner gym){
+    public void attackOrChangeOrHeal(Pokemon pokemon, Pokemon gymPokemon, PokemonTrainer trainer, PokemonGymOwner gym){
         Scanner speler_A = new Scanner(System.in);
 
-        System.out.println("Do you want to attack or change your pokemon?");
-        System.out.println("Type a for attack or c for change");
+        System.out.println("Do you want to attack, change your pokemon or heal your pokemon?");
+        System.out.println("Type a for attack, c for change or h for heal");
         String choice = speler_A.nextLine();
 
         if (choice.equalsIgnoreCase("a")) {
             String attack = chooseAttackPlayer(pokemon);
             performAttackPlayer(pokemon, gymPokemon, attack);
-        } else {
+        } else if (choice.equalsIgnoreCase("c")) {
             pokemon = choosePokemon(trainer);
-            attackOrChange(pokemon, gymPokemon, trainer, gym);
+            attackOrChangeOrHeal(pokemon, gymPokemon, trainer, gym);
             fightRound(trainer, gym, pokemon, gymPokemon);
+        } else{
+            pokemon.heal(pokemon);
         }
     }
 

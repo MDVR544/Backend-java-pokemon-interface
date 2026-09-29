@@ -44,4 +44,6 @@ public abstract class Pokemon {
     public String getType() {
         return type;
     }
+
+    public abstract void heal(Pokemon pokemon);
 }
